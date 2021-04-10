@@ -6,3 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Global METRONIC Theme Styles(used by all pages 
+@import '../assets/plugins/global/plugins.bundle.css';
+@import '../assets/plugins/custom/prismjs/prismjs.bundle.css';
+@import '../assets/css/style.bundle.css';
