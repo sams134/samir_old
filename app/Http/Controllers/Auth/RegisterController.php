@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Users\UserType;
 
 class RegisterController extends Controller
 {
@@ -41,12 +42,26 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        $userTypes = UserType::orderby('security')->get();
+     
+        return view('auth.register')->with('userTypes',$userTypes);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+     
     protected function validator(array $data)
     {
         return Validator::make($data, [
