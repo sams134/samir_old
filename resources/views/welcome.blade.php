@@ -718,7 +718,7 @@
 								<!--end::Topbar-->
 								<div class="d-flex align-items-stretch text-center flex-column py-40">
 									<!--begin::Heading-->
-									<h1 class="text-dark font-weight-bolder mb-12">How can we help?</h1>
+									<h1 class="text-dark font-weight-bolder mb-12">Bienvenido</h1>
 									<!--end::Heading-->
 									<!--begin::Form-->
 									<form class="d-flex position-relative w-75 px-lg-40 m-auto">
