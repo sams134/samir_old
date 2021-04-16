@@ -54,17 +54,7 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
-                    swal.fire({
-		                text: "All is cool! Now you submit this form",
-		                icon: "success",
-		                buttonsStyling: false,
-		                confirmButtonText: "Ok, got it!",
-                        customClass: {
-    						confirmButton: "btn font-weight-bold btn-light-primary"
-    					}
-		            }).then(function() {
-						KTUtil.scrollTop();
-					});
+                   $('#kt_login_signin_form').submit();
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",
@@ -106,44 +96,44 @@ var KTLogin = function() {
 					fullname: {
 						validators: {
 							notEmpty: {
-								message: 'Username is required'
+								message: 'Ingresa un nombre'
 							}
 						}
 					},
 					email: {
                         validators: {
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'Es obligatorio ingresar un correo'
 							},
                             emailAddress: {
-								message: 'The value is not a valid email address'
+								message: 'Eso no es un correo electronico'
 							}
 						}
 					},
                     password: {
                         validators: {
                             notEmpty: {
-                                message: 'The password is required'
+                                message: 'La contrase;a es obligatoria'
                             }
                         }
                     },
                     cpassword: {
                         validators: {
                             notEmpty: {
-                                message: 'The password confirmation is required'
+                                message: 'La confirmacion de su correo es obligatoria'
                             },
                             identical: {
                                 compare: function() {
                                     return form.querySelector('[name="password"]').value;
                                 },
-                                message: 'The password and its confirm are not the same'
+                                message: 'Las claves no son iguales'
                             }
                         }
                     },
                     agree: {
                         validators: {
                             notEmpty: {
-                                message: 'You must accept the terms and conditions'
+                                message: 'Debes aceptar todas las condiciones'
                             }
                         }
                     },
@@ -157,26 +147,19 @@ var KTLogin = function() {
 
         $('#kt_login_signup_submit').on('click', function (e) {
             e.preventDefault();
-
-            validation.validate().then(function(status) {
+            console.log("registrarse");
+            $('#kt_login_signup_form').submit();
+           /*  validation.validate().then(function(status) {
 		        if (status == 'Valid') {
-                    swal.fire({
-		                text: "All is cool! Now you submit this form",
-		                icon: "success",
-		                buttonsStyling: false,
-		                confirmButtonText: "Ok, got it!",
-                        customClass: {
-    						confirmButton: "btn font-weight-bold btn-light-primary"
-    					}
-		            }).then(function() {
-						KTUtil.scrollTop();
-					});
+                    console.log('submiting el registro');
+                    $('#kt_login_signup_form').submit();
+                    
 				} else {
 					swal.fire({
-		                text: "Sorry, looks like there are some errors detected, please try again.",
+		                text: "Hay errrores en el formulario",
 		                icon: "error",
 		                buttonsStyling: false,
-		                confirmButtonText: "Ok, got it!",
+		                confirmButtonText: "Aceptar!",
                         customClass: {
     						confirmButton: "btn font-weight-bold btn-light-primary"
     					}
@@ -184,7 +167,7 @@ var KTLogin = function() {
 						KTUtil.scrollTop();
 					});
 				}
-		    });
+		    }); */
         });
 
         // Handle cancel button
@@ -206,10 +189,10 @@ var KTLogin = function() {
 					email: {
 						validators: {
 							notEmpty: {
-								message: 'Email address is required'
+								message: 'El correo es obligatorio'
 							},
                             emailAddress: {
-								message: 'The value is not a valid email address'
+								message: 'Eso no es un correo electronico'
 							}
 						}
 					}
